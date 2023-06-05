@@ -18,12 +18,22 @@
           <a href="/book/edit/<%= book.author %>" class="btn btn-primary badge"
             >Edit</a
           >
-          <a
-            href="/book/delete/<%= book.author %>"
+          <!-- <a
+            href="/book/delete/<%= book.title %>"
             class="btn btn-danger badge"
             onclick="return confirm('are you sure?')"
             >Delete</a
-          >
+          > -->
+          <form action="/book?_method=DELETE" method="POST" class="d-inline">
+            <input type="hidden" name="title" value="<%= book.title %>" />
+            <button
+              type="submit"
+              class="btn btn-danger badge"
+              onclick="return confirm('are you sure?')"
+            >
+              Delete
+            </button>
+          </form>
           <a href="/book" class="card-link d-block mt-3">&laquo; Back</a>
         </div>
       </div>
