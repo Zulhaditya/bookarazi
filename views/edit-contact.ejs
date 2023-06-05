@@ -1,0 +1,84 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Edit contact</h2>
+
+      <% if (typeof errors != 'undefined') { %>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <% } %>
+
+      <!-- form -->
+      <form method="post" action="/book/update">
+        <input
+          type="hidden"
+          name="oldAuthor"
+          value="<%= (book.oldAuthor) ? book.oldAuthor : book.Author %>"
+        />
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+            value="<%= book.title %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            required
+            value="<%= book.author %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="publisher" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="publisher"
+            name="publisher"
+            required
+            value="<%= book.publisher %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="year" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="year"
+            name="year"
+            required
+            value="<%= book.year %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="review" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="review"
+            name="review"
+            required
+            value="<%= book.review %>"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

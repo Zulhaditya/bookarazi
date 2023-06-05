@@ -1,0 +1,52 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Contact List</h2>
+
+      <a href="/book/add" class="btn btn-primary mb-2">Add Book</a>
+
+      <% if(msg.length !== 0) { %>
+      <div class="alert alert-success" role="alert"><%= msg %></div>
+      <%} %>
+
+      <!-- table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="w-25">Title</th>
+            <th scope="col" class="w-25">Author</th>
+            <th scope="col">Year</th>
+            <th scope="col" class="w-25">Publisher</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (books.length === 0) { %>
+          <tr>
+            <td colspan="4">
+              <div class="alert alert-danger fw-bold" role="alert">
+                Book doesnt exists.
+              </div>
+            </td>
+          </tr>
+          <% } %> <% books.forEach((book, i) => { i++ %>
+          <tr>
+            <th scope="row"><%= i++ %></th>
+            <td><%= book.title %></td>
+            <td><%= book.author %></td>
+            <td><%= book.year %></td>
+            <td><%= book.publisher %></td>
+            <td>
+              <a
+                href="/book/<%= book.author %>"
+                class="btn btn-success badge rounded-pill"
+                ><i class="bi bi-info-circle-fill"></i> detail</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
